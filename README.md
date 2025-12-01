@@ -87,6 +87,32 @@ The core architectural principle is:
 
 ## 4.1 Setup and Execution
 
+###  Running Directly with Python/Uvicorn (Recommended for Development)
+This method allows you to debug the code directly in your local environment.
+1. Set Up Project Structure
+    First, please ensure your project file structure is organized as planned within the image-ingestion-service directory:
+2. Install Dependencies
+    Open your command line or terminal, navigate to the project root directory (image-ingestion-service/), and execute the following commands to install all required Python packages:
+    ```
+   # It is recommended to create a Python virtual environment first
+    python3 -m venv venv
+    source venv/bin/activate  # macOS/Linux
+    # venv\Scripts\activate  # Windows
+    
+    # Install dependencies
+    pip install -r requirements.txt
+   ```
+3. Run the Service
+  After installing dependencies and activating the virtual environment, use Uvicorn to run the FastAPI application.
+    ```
+    # Command format: uvicorn [module_path]:[FastAPI_instance_name] --reload --host 0.0.0.0 --port 8000
+       uvicorn app.main:app --reload --host 0.0.0.0 --port 8000
+   ```
+4. Upon successful service startup:
+   You can access the API documentation and test the endpoints by navigating to http://127.0.0.1:8000/docs in your browser.
+
+    The service will use default configuration: files will be saved locally in the ./uploads/ai_platform_images/ directory, and metadata will be stored in the ./images.db SQLite file.
+
 ### A. Build & Run with Docker
 
 #### 1. Build the Docker Image
