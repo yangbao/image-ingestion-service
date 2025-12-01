@@ -1,0 +1,11 @@
+fastapi~=0.123.0
+uvicorn[standard]==0.29.0
+sqlalchemy~=2.0.44
+pydantic~=2.10.3
+pydantic-settings~=2.12.0
+python-multipart
+# 在生产环境使用 PostgreSQL 时需要安装：
+#When using PostgreSQL in a production environment, you need to install:
+# psycopg2-binary
+pytest~=9.0.1
+pytest-mock
